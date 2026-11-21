@@ -29,6 +29,12 @@ public class ClienteService {
         Cliente cliente = new Cliente(dni, nombre, tipo);
         clienteRepo.guardar(cliente);
         Console.info("Cliente registrado: " + nombre);
+
+        //fix
+        if (dni == null || dni.trim().isEmpty() || dni.length() != 8 || !dni.matches("\\d+")) {
+        Console.info("ERROR: Cliente inválido");
+}
+
     }
 
     public Cliente buscarCliente(String dni) {
